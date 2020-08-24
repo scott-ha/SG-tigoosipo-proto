@@ -14,7 +14,7 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
+      <li id='/' class="nav-item">
         <a class="nav-link" href="/">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
@@ -96,7 +96,7 @@
       </li>
 
       <!-- Nav Item - Tables -->
-      <li class="nav-item active">
+      <li id='userlog' class="nav-item active">
         <a class="nav-link" href="userlog">
           <i class="fas fa-fw fa-table"></i>
           <span>결제정보</span></a>
@@ -112,3 +112,17 @@
 
     </ul>
 </nav>
+
+<script>
+  navmenu = ['/', 'userlog']
+  navmenu.forEach(navmenu => {
+    if(location.pathname.includes(navmenu)){
+      let element = document.getElementById(navmenu)
+        element.classList.add('active')
+    }
+    else{
+      let element = document.getElementById(navmenu)
+      element.classList.remove('active')
+    }
+  });
+</script>
