@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kor">
 
 <head>
 
@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - 404</title>
+  <title>티구시포 - Dashboard</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,8 +25,6 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-    <!-- Sidebar -->
-    
     <!-- Sidebar -->
     <% include ./part/admin-nav %>
     <!-- End of Sidebar -->
@@ -222,14 +220,41 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
-          <!-- 404 Error Text -->
-          <div class="text-center">
-            <div class="error mx-auto" data-text="404">404</div>
-            <p class="lead text-gray-800 mb-5">Page Not Found</p>
-            <p class="text-gray-500 mb-0">It looks like you found a glitch in the matrix...</p>
-            <a href="index.html">&larr; Back to Dashboard</a>
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">티구시포 이용자 현황</h1>
+            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
+
+          <div class="row">
+
+            <!-- Pie Chart -->
+          <div class="col-xl-6 col-lg-6">
+          <!-- Group A -->
+          <% 
+          var tableSize = [2,4]
+          for(var i = 0 ; tableSize[0] >i ; i++){
+            for(var j = 0 ; tableSize[1] >i ; j++){
+          %>
+            <button>
+              asdfaf
+            </button>
+          <%
+            }
+          %>     
+                  
+          </div>
+            </div>
+
+             <!-- Pie Chart -->
+             <div class="col-xl-6 col-lg-6">
+                <span>sgsdg</span>
+              
+            </div>
+
+
+          </div>
+          
 
         </div>
         <!-- /.container-fluid -->
@@ -287,6 +312,22 @@
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
 
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
+
 </body>
 
 </html>
+<script>
+var seatGroupA = [0,0,1,0,0,0]
+
+var seatGroupB = [0,0,1,0,0,0]
+
+var seatGroupC = [0,0,1,0,0,0]
+
+</script>
+
