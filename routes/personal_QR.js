@@ -7,6 +7,8 @@ var kakao_data, kakao_res;
 // show personal QR
 // /qr
 router.post('/', function(req, res, next) {
+  console.log('--req--');
+  console.log(req);
 
   kakao_data = {
     "version": "2.0",
@@ -14,10 +16,6 @@ router.post('/', function(req, res, next) {
       "outputs": [{
         "simpleText": {
           "text": "하늘님 QR 코드입니다."
-        }
-      }, {
-        "simpleImage" : {
-          "imageUrl" : "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example"
         }
       }]
     }
