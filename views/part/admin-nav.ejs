@@ -1,65 +1,68 @@
 <nav>
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+  <!-- Sidebar -->
+  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-      <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-      </a>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li id='/' class="nav-item">
-        <a class="nav-link" href="/">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">  
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        매장관리
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <div class="sidebar-brand-icon rotate-n-15">
+        <i class="fas fa-laugh-wink"></i>
       </div>
+      <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+    </a>
 
-      <!-- Nav Item - Tables -->
-      <li id='userlog' class="nav-item active">
-        <a class="nav-link" href="userlog">
-          <i class="fas fa-fw fa-table"></i>
-          <span>결제정보</span></a>
-      </li>
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
 
-      <li id='seat-manager' class="nav-item">
-          <a class="nav-link" href="seat-manager">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>좌석관리</span></a>
-        </li>
-  
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
+    <!-- Nav Item - Dashboard -->
+    <li id='/' class="nav-item">
+      <a class="nav-link" href="/">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Dashboard</span></a>
+    </li>
 
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
+    <!-- Divider -->
+    <hr class="sidebar-divider">
 
-    </ul>
+    <!-- Heading -->
+    <div class="sidebar-heading">
+      매장관리
+    </div>
+
+    <!-- Nav Item - Tables -->
+    <li id='userlog' class="nav-item active">
+      <a class="nav-link" href="userlog">
+        <i class="fas fa-fw fa-table"></i>
+        <span>결제정보</span></a>
+    </li>
+    <li id='seat-manager' class="nav-item">
+      <a class="nav-link" href="seat-manager">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>좌석관리</span></a>
+    </li>
+    <li id='seat-manager' class="nav-item">
+      <a class="nav-link" href="seat-manager">
+        <i class="fas fa-fw fa-user"></i>
+        <span>회원관리</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+      <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+  </ul>
 </nav>
 
 <script>
   navmenu = ['/', 'userlog', 'seat-manager']
   navmenu.forEach(navmenu => {
-    if(location.pathname.includes(navmenu)){
+    if (location.pathname.includes(navmenu)) {
       let element = document.getElementById(navmenu)
-        element.classList.add('active')
-    }
-    else{
+      element.classList.add('active')
+    } else {
       let element = document.getElementById(navmenu)
       element.classList.remove('active')
     }
