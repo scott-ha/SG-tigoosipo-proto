@@ -39,8 +39,8 @@
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>좌석관리</span></a>
     </li>
-    <li id='seat-manager' class="nav-item">
-      <a class="nav-link" href="seat-manager">
+    <li id='users' class="nav-item">
+      <a class="nav-link" href="users">
         <i class="fas fa-fw fa-user"></i>
         <span>회원관리</span></a>
     </li>
@@ -57,7 +57,7 @@
 </nav>
 
 <script>
-  navmenu = ['/', 'userlog', 'seat-manager']
+  navmenu = ['/', 'userlog', 'seat-manager', 'users']
   navmenu.forEach(navmenu => {
     if (location.pathname.includes(navmenu)) {
       let element = document.getElementById(navmenu)

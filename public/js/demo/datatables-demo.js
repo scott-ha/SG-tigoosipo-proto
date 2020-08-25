@@ -1,4 +1,9 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function() {
-  $('#dataTable').DataTable();
+  $('#dataTable-ex').DataTable(
+    {
+    dom: 'Bfrtip',
+    buttons: ['excel', 'print']
+  }
+);
 });
