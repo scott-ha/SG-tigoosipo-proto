@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="kor">
+<html lang="en">
 
 <head>
 
@@ -9,14 +9,101 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>티구시포 - Dashboard</title>
+  <title>SB Admin 2 - Tables</title>
 
-  <!-- Custom fonts for this template-->
+  <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-  <!-- Custom styles for this template-->
+  <!-- Custom styles for this template -->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this page -->
+  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+  <style>
+        .line {
+            overflow: hidden;
+        }
+
+        .seat {
+            margin: 2px;
+            float: left;
+            width: 30px;
+            height: 30px;
+            border-radius: 3px;
+        }
+
+        .enable {
+            background: gray;
+        }
+
+        .enable:hover {
+            background: black;
+        }
+
+        .disable {
+            background: red;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.12.1.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- 소켓 생성 -->
+    <script>
+        // 소켓 이벤트를 수행합니다.
+        var socket = io.connect();
+
+        // 이벤트를 연결합니다.
+        socket.on('reserve', function (data) {
+            var $target = $('div[data-x = ' + data.x + '][data-y = ' + data.y + ']');
+            $target.removeClass('enable');
+            $target.addClass('disable');
+        });
+    </script>
+    <!-- 초기 좌석 생성 -->
+    <script>
+        $(document).ready(function () {
+            // 변수를 선언합니다.
+            var onClickSeat = function () {
+                var x = $(this).attr('data-x');
+                var y = $(this).attr('data-y');
+                if (confirm('좌석을 예약하시겠습니까?')) {
+                    $(this).off('click');
+                    socket.emit('reserve', {
+                        x: x,
+                        y: y
+                    });
+                } else {
+                    alert('취소되었습니다.');
+                }
+            };
+            // Ajax를 수행합니다.
+            $.getJSON('/seatManager', { dummy: new Date().getTime() }, function (data) {
+                // 좌석을 생성합니다.
+                $.each(data, function (indexY, line) {
+                    // 문서 객체를 생성합니다.
+                    var $line = $('<div></div>').addClass('line');
+                    $.each(line, function (indexX, seat) {
+                        // 문서 객체를 생성하고 변수 $line에 추가합니다.
+                        var $output = $('<div></div>', {
+                            'class': 'seat',
+                            'data-x': indexX,
+                            'data-y': indexY
+                        }).appendTo($line);
+                        if (seat == 1) {
+                            // 좌석이 비어 있으면 enable 클래스와 click 리스너를 추가합니다.
+                            $output.addClass('enable').on('click', onClickSeat);
+                        } else if (seat == 2) {
+                            // 좌석이 사용 불가능하면 disable 클래스를 추가합니다.
+                            $output.addClass('disable');
+                        }
+                    });
+                    // 문서 객체를 추가합니다.
+                    $line.appendTo('body');
+                });
+            });
+        });
+    </script>
 
 </head>
 
@@ -24,11 +111,8 @@
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-
-    <!-- Sidebar -->
-    <% include ./part/admin-nav %>
     <!-- End of Sidebar -->
-
+    <% include ./part/admin-nav %>
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
@@ -39,9 +123,11 @@
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
           <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
+          <form class="form-inline">
+            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+              <i class="fa fa-bars"></i>
+            </button>
+          </form>
 
           <!-- Topbar Search -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -220,41 +306,19 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
+
           <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">티구시포 이용자 현황</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-          </div>
+          <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+          <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
 
-          <div class="row">
-
-            <!-- Pie Chart -->
-          <div class="col-xl-6 col-lg-6">
-          <!-- Group A -->
-          <% 
-          var tableSize = [2,4]
-          for(var i = 0 ; tableSize[0] >i ; i++){
-            for(var j = 0 ; tableSize[1] >i ; j++){
-          %>
-            <button>
-              asdfaf
-            </button>
-          <%
-            }
-          %>     
-                  
-          </div>
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">티구시포 좌석현황</h6>
             </div>
-
-             <!-- Pie Chart -->
-             <div class="col-xl-6 col-lg-6">
-                <span>sgsdg</span>
-              
+            <div class="card-body">
             </div>
-
-
           </div>
-          
 
         </div>
         <!-- /.container-fluid -->
@@ -313,21 +377,12 @@
   <script src="js/sb-admin-2.min.js"></script>
 
   <!-- Page level plugins -->
-  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
   <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>
+  <script src="js/demo/datatables-demo.js"></script>
 
 </body>
 
 </html>
-<script>
-var seatGroupA = [0,0,1,0,0,0]
-
-var seatGroupB = [0,0,1,0,0,0]
-
-var seatGroupC = [0,0,1,0,0,0]
-
-</script>
-

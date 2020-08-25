@@ -1,10 +1,17 @@
 var express = require('express');
 var router = express.Router();
+var fs = require('fs');
+var app = require('../app')
 
-/* GET home page. */
+
+// /seatmanager
 router.get('/', function(req, res, next) {
-  res.render('seatManager', { title: 'Express' });
-
+  res.render('test1')
 });
+
+router.get('/seats', function(req, res, next) {
+  res.send(app.seats);
+})
+
 
 module.exports = router;

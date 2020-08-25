@@ -16,14 +16,16 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/userlog', userlogRouter);
-app.use('/seat-manager', seatManagerRouter);
+app.use('/seatmanager', seatManagerRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -39,5 +41,22 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('404');
 });
+// HN need to modify....
+var seats = [
+  [1, 1, 1],
+  [1, 1, 1],
+  [1, 1, 1]
+];
+
+app.io = require('socket.io')();
+app.io.on('connection', function(socket) {
+  console.log('socketio user....connected');
+  socket.on('reserve', function(data) {
+    seats[data.y][data.x] = 2;
+    app.io.emit('reserve', data);
+  });
+});
+// HN need to modify....
+exports.seats = seats;
 
 module.exports = app;
