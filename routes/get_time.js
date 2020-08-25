@@ -48,7 +48,12 @@ router.post('/', function(req, res, next) {
         "simpleText": {
           "text": "총 예약 기간 : " + diffTime.day + "일 " + diffTime.hour + "시간 " + diffTime.minute + "분입니다."
         }
-      }]
+      }],
+      "quickReplies": [{
+                "action": "block",
+                "label": "더 보기",
+                "blockId": "5f436d7820ea840001068e76"
+              }]
     }
   }
   kakao_res = kakao_data;
