@@ -30,14 +30,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/userlog', userlogRouter);
-<<<<<<< HEAD
-app.use('/seat-manager', seatManagerRouter);
 app.use('/qr', personal_QR);
 app.use('/time', gettime);
-
-=======
 app.use('/seatmanager', seatManagerRouter);
->>>>>>> feature/Seat-Manager
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
