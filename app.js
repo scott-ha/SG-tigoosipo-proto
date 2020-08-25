@@ -6,8 +6,14 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+<<<<<<< HEAD
 var userlogRouter = require('./routes/userlog');
 var seatManagerRouter = require('./routes/seatManager');
+=======
+var personal_QR = require('./routes/personal_QR');
+var gettime = require('./routes/get_time');
+
+>>>>>>> feature/kakao-QR
 var app = express();
 
 // view engine setup
@@ -22,8 +28,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+<<<<<<< HEAD
 app.use('/userlog', userlogRouter);
 app.use('/seat-manager', seatManagerRouter);
+=======
+app.use('/qr', personal_QR);
+app.use('/time', gettime);
+
+>>>>>>> feature/kakao-QR
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
