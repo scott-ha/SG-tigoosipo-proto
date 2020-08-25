@@ -6,9 +6,10 @@ var app = require('../app')
 
 // /seatmanager
 router.get('/', function(req, res, next) {
-  res.render('test1')
+  res.render('seats')
 });
 
+// /seatmanager/seats
 router.get('/seats', function(req, res, next) {
   res.send(app.seats);
 })

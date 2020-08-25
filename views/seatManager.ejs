@@ -21,90 +21,6 @@
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-  <style>
-        .line {
-            overflow: hidden;
-        }
-
-        .seat {
-            margin: 2px;
-            float: left;
-            width: 30px;
-            height: 30px;
-            border-radius: 3px;
-        }
-
-        .enable {
-            background: gray;
-        }
-
-        .enable:hover {
-            background: black;
-        }
-
-        .disable {
-            background: red;
-        }
-    </style>
-    <script src="http://code.jquery.com/jquery-1.12.1.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <!-- 소켓 생성 -->
-    <script>
-        // 소켓 이벤트를 수행합니다.
-        var socket = io.connect();
-
-        // 이벤트를 연결합니다.
-        socket.on('reserve', function (data) {
-            var $target = $('div[data-x = ' + data.x + '][data-y = ' + data.y + ']');
-            $target.removeClass('enable');
-            $target.addClass('disable');
-        });
-    </script>
-    <!-- 초기 좌석 생성 -->
-    <script>
-        $(document).ready(function () {
-            // 변수를 선언합니다.
-            var onClickSeat = function () {
-                var x = $(this).attr('data-x');
-                var y = $(this).attr('data-y');
-                if (confirm('좌석을 예약하시겠습니까?')) {
-                    $(this).off('click');
-                    socket.emit('reserve', {
-                        x: x,
-                        y: y
-                    });
-                } else {
-                    alert('취소되었습니다.');
-                }
-            };
-            // Ajax를 수행합니다.
-            $.getJSON('/seatManager', { dummy: new Date().getTime() }, function (data) {
-                // 좌석을 생성합니다.
-                $.each(data, function (indexY, line) {
-                    // 문서 객체를 생성합니다.
-                    var $line = $('<div></div>').addClass('line');
-                    $.each(line, function (indexX, seat) {
-                        // 문서 객체를 생성하고 변수 $line에 추가합니다.
-                        var $output = $('<div></div>', {
-                            'class': 'seat',
-                            'data-x': indexX,
-                            'data-y': indexY
-                        }).appendTo($line);
-                        if (seat == 1) {
-                            // 좌석이 비어 있으면 enable 클래스와 click 리스너를 추가합니다.
-                            $output.addClass('enable').on('click', onClickSeat);
-                        } else if (seat == 2) {
-                            // 좌석이 사용 불가능하면 disable 클래스를 추가합니다.
-                            $output.addClass('disable');
-                        }
-                    });
-                    // 문서 객체를 추가합니다.
-                    $line.appendTo('body');
-                });
-            });
-        });
-    </script>
-
 </head>
 
 <body id="page-top">
@@ -309,12 +225,16 @@
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-          <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+          <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables
+              documentation</a>.</p>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">티구시포 좌석현황</h6>
+              <iframe src="/seatmanager">
+                <p>현재 사용 중인 브라우저는 iframe 요소를 지원하지 않습니다!</p>
+              </iframe>
             </div>
             <div class="card-body">
             </div>

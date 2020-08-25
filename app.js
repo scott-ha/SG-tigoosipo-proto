@@ -12,6 +12,7 @@ var seatManagerRouter = require('./routes/seatManager');
 
 var personal_QR = require('./routes/personal_QR');
 var gettime = require('./routes/get_time');
+var seatManagerAdminRouter = require('./routes/seatManagerAdmin');
 
 var app = express();
 
@@ -33,6 +34,7 @@ app.use('/userlog', userlogRouter);
 app.use('/qr', personal_QR);
 app.use('/time', gettime);
 app.use('/seatmanager', seatManagerRouter);
+app.use('/seatmanageradmin', seatManagerAdminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html>
 <head>
-    <title>Node.js Programming for Modern Web</title>
+    <title>티구시포</title>
     <style>
         .line {
             overflow: hidden;
         }
-
         .seat {
             margin: 2px;
             float: left;
@@ -14,15 +11,12 @@
             height: 30px;
             border-radius: 3px;
         }
-
         .enable {
             background: gray;
         }
-
         .enable:hover {
             background: black;
         }
-
         .disable {
             background: red;
         }
@@ -32,7 +26,7 @@
     <!-- 소켓 생성 -->
     <script>
         // 소켓 이벤트를 수행합니다.
-        var socket = io.connect();
+        var socket = io();
 
         // 이벤트를 연결합니다.
         socket.on('reserve', function (data) {
@@ -89,4 +83,3 @@
 <body>
 
 </body>
-</html>
