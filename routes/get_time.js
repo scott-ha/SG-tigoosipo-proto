@@ -14,6 +14,7 @@ router.post('/', function(req, res, next) {
   console.log('--req--');
   var s_time = req.body.action.params.startTime;
   var e_time = req.body.action.params.endTime;
+  console.log("s_time origin: ", s_time, "e_time origin: ", e_time);
 	var s_time_date = s_time.substring(10, 20);
 	var s_time_time = s_time.substring(21, 26);
 	var s_time = s_time_date + ' ' + s_time_time;
