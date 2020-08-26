@@ -20,11 +20,7 @@ router.post('/', function(req, res, next) {
     "template": {
       "outputs": [{
         "simpleText": {
-          "text": "해당 QR코드는 하늘 회원 입니다." + qr_read
-        }
-      }, {
-        "simpleImage" : {
-          "imageUrl" : "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
+          "text": "해당 QR코드는 하늘 회원 입니다. 좌석 선택을 이용하거나 출입문 관리를 할 수 있습니다."
         }
       }]
     }
