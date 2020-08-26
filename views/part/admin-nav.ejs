@@ -3,17 +3,14 @@
 
   <!-- Sidebar - Brand -->
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-    <div class="sidebar-brand-icon rotate-n-15">
-      <i class="fas fa-laugh-wink"></i>
-    </div>
-    <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+    <div class="sidebar-brand-text mx-3">티구시포</div>
   </a>
 
   <!-- Divider -->
   <hr class="sidebar-divider my-0">
 
   <!-- Nav Item - Dashboard -->
-  <li id='/' class="nav-item">
+  <li id='main' class="nav-item">
     <a class="nav-link" href="/">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>메인페이지</span></a>
@@ -35,7 +32,7 @@
   <li id='seat-manager' class="nav-item">
     <a class="nav-link" href="seatmanageradmin">
       <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>좌석관리</span></a>
+      <span>이용관리</span></a>
   </li>
   <li id='users' class="nav-item">
     <a class="nav-link" href="users">
@@ -154,7 +151,7 @@
 
 
 <script>
-  navmenu = ['/', 'userlog', 'seatmanageradmin', 'users']
+  navmenu = ['main', 'userlog', 'seat-manager', 'users']
   navmenu.forEach(navmenu => {
     if (location.pathname.includes(navmenu)) {
       let element = document.getElementById(navmenu)
