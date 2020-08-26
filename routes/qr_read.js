@@ -11,6 +11,7 @@ router.post('/', function(req, res, next) {
   console.log(req);
   //챗봇 바코드 플러그인의 코드 정보
   var qr_read = req.body.action.params.qr_read;
+  console.log('qr_read', qr_read);
 
 
 
@@ -19,7 +20,7 @@ router.post('/', function(req, res, next) {
     "template": {
       "outputs": [{
         "simpleText": {
-          "text": "해당 QR코드는 하늘 회원 입니다."
+          "text": "해당 QR코드는 하늘 회원 입니다." + qr_read
         }
       }, {
         "simpleImage" : {
