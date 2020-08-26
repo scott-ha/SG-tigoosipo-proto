@@ -11,6 +11,7 @@ var userlogRouter = require('./routes/userlog');
 var seatManagerRouter = require('./routes/seatManager');
 
 var personal_QR = require('./routes/personal_QR');
+var qr_read = require('./routes/qr_read');
 var gettime = require('./routes/get_time');
 var seatManagerAdminRouter = require('./routes/seatManagerAdmin');
 
@@ -32,6 +33,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/userlog', userlogRouter);
 app.use('/qr', personal_QR);
+app.use('/qr_read', qr_read);
 app.use('/time', gettime);
 app.use('/seatmanager', seatManagerRouter);
 app.use('/seatmanageradmin', seatManagerAdminRouter);
