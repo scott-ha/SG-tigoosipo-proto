@@ -32,6 +32,7 @@ router.post('/', function(req, res, next) {
 		minute: moment.duration(e_time1.diff(s_time1)).minutes()
 	}
 
+  console.log("diffTime", diffTime);
 
   kakao_data = {
     "version": "2.0",
