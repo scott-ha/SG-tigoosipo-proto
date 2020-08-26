@@ -53,7 +53,7 @@ router.post('/', function(req, res, next) {
       "quickReplies": [{
                 "action": "block",
                 "label": "좌석 선택",
-                "blockId": "5f436aeca812530001ad9f29"
+                "blockId": "5f436ada2c84fd000101b08e"
               }]
     }
   }
