@@ -51,8 +51,8 @@ router.post('/', function(req, res, next) {
       }],
       "quickReplies": [{
                 "action": "block",
-                "label": "더 보기",
-                "blockId": "5f436d7820ea840001068e76"
+                "label": "좌석 선택",
+                "blockId": "5f436aeca812530001ad9f29"
               }]
     }
   }
