@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var personal_QR = require('./routes/personal_QR');
+var qr_read = require('./routes/qr_read');
 var gettime = require('./routes/get_time');
 
 var app = express();
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/qr', personal_QR);
+app.use('/qr_read', qr_read);
 app.use('/time', gettime);
 
 // catch 404 and forward to error handler
