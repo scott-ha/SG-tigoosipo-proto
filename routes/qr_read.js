@@ -10,7 +10,7 @@ router.post('/', function(req, res, next) {
   console.log('--req--');
   console.log(req);
   //챗봇 바코드 플러그인의 코드 정보
-  var qr_read = req.body.action.params.qr_read;
+  var qr_read = req.body.action.params.qr_read.barcodeData;
   console.log('qr_read', qr_read);
 
 
