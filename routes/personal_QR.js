@@ -19,7 +19,7 @@ router.post('/', function(req, res, next) {
         }
       }, {
         "simpleImage" : {
-          "imageUrl" : "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
+          "imageUrl" : "https://qrcodethumb-phinf.pstatic.net/20200827_142/1598457368148n45RH_PNG/0DJT5.png"
         }
       }]
     }
