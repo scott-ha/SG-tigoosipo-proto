@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
 <head>
     <title>티구시포</title>
     <style>
@@ -5,10 +9,10 @@
             overflow: hidden;
         }
         .seat {
-            margin: 2px;
+            margin: 6px;
             float: left;
-            width: 30px;
-            height: 30px;
+            width: 100px;
+            height: 100px;
             border-radius: 3px;
         }
         .enable {
@@ -19,6 +23,13 @@
         }
         .disable {
             background: red;
+        }
+        .center{
+          position: absolute;
+          left: 50%;
+          margin-left: -150px;
+          top: 50%;
+          margin-top: -150px;
         }
     </style>
     <script src="http://code.jquery.com/jquery-1.12.1.js"></script>
@@ -74,12 +85,15 @@
                         }
                     });
                     // 문서 객체를 추가합니다.
-                    $line.appendTo('body');
+                    $line.appendTo('.center');
                 });
             });
         });
     </script>
 </head>
 <body>
+  <div class="center">
 
+  </div>
 </body>
+</html>

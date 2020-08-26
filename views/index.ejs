@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>티구시포 - Dashboard</title>
+  <title>티구시포 - Admin</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -320,6 +320,36 @@
                   </div>
                 </div>
               </div>
+
+              <!-- notice -->
+              <div class="col-xl-6 col-lg-6">
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">공지 사항</h6>
+                  </div>
+                  <div class="card-body">
+                    <% include ./table_data/noticeindex-t %>
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- userpaylog table -->
+              <div class="col-xl-6 col-lg-6">
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">결제 내역</h6>
+                  </div>
+                  <div class="card-body">
+                    <% include ./table_data/userpaylogindex-t %>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
 
               <!-- Pie Chart -->
               <div class="col-xl-6 col-lg-6">

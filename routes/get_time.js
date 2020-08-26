@@ -14,6 +14,7 @@ router.post('/', function(req, res, next) {
   console.log('--req--');
   var s_time = req.body.action.params.startTime;
   var e_time = req.body.action.params.endTime;
+  console.log("s_time origin: ", s_time, "e_time origin: ", e_time);
 	var s_time_date = s_time.substring(10, 20);
 	var s_time_time = s_time.substring(21, 26);
 	var s_time = s_time_date + ' ' + s_time_time;
@@ -32,6 +33,7 @@ router.post('/', function(req, res, next) {
 		minute: moment.duration(e_time1.diff(s_time1)).minutes()
 	}
 
+  console.log("diffTime", diffTime);
 
   kakao_data = {
     "version": "2.0",
@@ -51,8 +53,8 @@ router.post('/', function(req, res, next) {
       }],
       "quickReplies": [{
                 "action": "block",
-                "label": "더 보기",
-                "blockId": "5f436d7820ea840001068e76"
+                "label": "좌석 선택",
+                "blockId": "5f436ada2c84fd000101b08e"
               }]
     }
   }
