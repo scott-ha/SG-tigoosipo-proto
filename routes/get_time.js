@@ -15,11 +15,11 @@ router.post('/', function(req, res, next) {
   var s_time = req.body.action.params.startTime;
   var e_time = req.body.action.params.endTime;
   console.log("s_time origin: ", s_time, "e_time origin: ", e_time);
-	var s_time_date = s_time.substring(10, 20);
-	var s_time_time = s_time.substring(21, 26);
+	var s_time_date = s_time.substring(33, 43);
+	var s_time_time = s_time.substring(44, 49);
 	var s_time = s_time_date + ' ' + s_time_time;
-	var e_time_date = e_time.substring(10, 20);
-	var e_time_time = e_time.substring(21, 26);
+	var e_time_date = e_time.substring(33, 43);
+	var e_time_time = e_time.substring(44, 49);
 	var e_time = e_time_date + ' ' + e_time_time;
 	console.log('s_time', s_time, typeof s_time);
 
