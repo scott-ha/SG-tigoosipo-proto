@@ -54,16 +54,16 @@ var myBarChart = new Chart(ctx, {
     scales: {
       xAxes: [{
         time: {
-          unit: 'month'
+          unit: 'date'
         },
         gridLines: {
           display: false,
-          drawBorder: false
+          drawBorder: true
         },
         ticks: {
-          maxTicksLimit: 6
+          maxTicksLimit: 12
         },
-        maxBarThickness: 25,
+        maxBarThickness: 40,
       }],
       yAxes: [{
         ticks: {
